@@ -31,6 +31,11 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+vim.keymap.set('n', '<leader>pp', vim.diagnostic.goto_prev, { desc = 'Go to [P]revious diagnostic message' })
+vim.keymap.set('n', '<leader>pn', vim.diagnostic.goto_next, { desc = 'Go to [N]ext diagnostic message' })
+vim.keymap.set('n', '<leader>ps', vim.diagnostic.open_float, { desc = '[S]how diagnostic under cursor' })
+vim.keymap.set('n', '<leader>pq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
