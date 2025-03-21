@@ -15,7 +15,7 @@ return {
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
-      mini_surround.setup({
+      require('mini.surround').setup({
         -- Add custom surroundings
         -- mappings = {
         --   add = 'sa', -- Add surrounding in Normal and Visual modes

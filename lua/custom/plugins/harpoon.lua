@@ -27,10 +27,10 @@ return {
       { desc = "Harpoon file 4" })
 
     -- Navigate with Control keys (alternative style)
-    vim.keymap.set("n", "<C-j>", function() harpoon:list():select(1) end)
-    vim.keymap.set("n", "<C-k>", function() harpoon:list():select(2) end)
-    vim.keymap.set("n", "<C-l>", function() harpoon:list():select(3) end)
-    vim.keymap.set("n", "<C-;>", function() harpoon:list():select(4) end)
+    vim.keymap.set("n", "<A-j>", function() harpoon:list():select(1) end)
+    vim.keymap.set("n", "<A-k>", function() harpoon:list():select(2) end)
+    vim.keymap.set("n", "<A-l>", function() harpoon:list():select(3) end)
+    vim.keymap.set("n", "<A-;>", function() harpoon:list():select(4) end)
 
     -- Open in splits
     vim.keymap.set("n", "<leader>hs", function()

@@ -36,6 +36,9 @@ vim.keymap.set('n', '<leader>pn', vim.diagnostic.goto_next, { desc = 'Go to [N]e
 vim.keymap.set('n', '<leader>ps', vim.diagnostic.open_float, { desc = '[S]how diagnostic under cursor' })
 vim.keymap.set('n', '<leader>pq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+vim.keymap.set('n', '<leader>rt', "<cmd>silent !tmux send-keys 'C-b' T<CR>",
+  { desc = '[R]esize [T]mux pane toggle width', silent = true })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
