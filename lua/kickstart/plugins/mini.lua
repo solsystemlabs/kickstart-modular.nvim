@@ -15,7 +15,37 @@ return {
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
-      require('mini.surround').setup()
+      mini_surround.setup({
+        -- Add custom surroundings
+        -- mappings = {
+        --   add = 'sa', -- Add surrounding in Normal and Visual modes
+        --   delete = 'sd', -- Delete surrounding
+        --   find = 'sf', -- Find surrounding (to the right)
+        --   find_left = 'sF', -- Find surrounding (to the left)
+        --   highlight = 'sh', -- Highlight surrounding
+        --   replace = 'sr', -- Replace surrounding
+        --   update_n_lines = 'sn', -- Update `n_lines`
+        -- },
+
+        -- Customize surroundings
+        surrounds = {
+          -- Use 't' for HTML tags
+          t = {
+            input = { '<(%w+)>', '</(%w+)>' },
+            output = function(content, capture)
+              return { '<' .. capture[1] .. '>', '</' .. capture[1] .. '>' }
+            end,
+          },
+          -- Use 'T' for interactive HTML tag input
+          T = {
+            input = function()
+              local tag = vim.fn.input('Enter tag name: ')
+              if tag == '' then return nil end
+              return { '<' .. tag .. '>', '</' .. tag .. '>' }
+            end,
+          },
+        },
+      })
 
       vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
 
