@@ -21,16 +21,35 @@ return {
   --   end,
   -- },
 
+  -- {
+  --   "tiagovla/tokyodark.nvim",
+  --   priority = 1000,
+  --   opts = {
+  --     -- custom options here
+  --     styles = {
+  --       comments = { italic = false },
+  --       keywords = { italic = false },
+  --       identifiers = { italic = false },
+  --       functions = { italic = false },
+  --       variables = { italic = false },
+  --     }
+  --   },
+  --   config = function(_, opts)
+  --     require("tokyodark").setup(opts) -- calling setup is optional
+  --     vim.cmd [[colorscheme tokyodark]]
+  --   end,
+  -- }
+
   {
-    "tiagovla/tokyodark.nvim",
+    'navarasu/onedark.nvim',
     priority = 1000,
-    opts = {
-      -- custom options here
-    },
-    config = function(_, opts)
-      require("tokyodark").setup(opts) -- calling setup is optional
-      vim.cmd [[colorscheme tokyodark]]
-    end,
+    config = function()
+      require('onedark').setup({
+        style = 'darker'
+      })
+      require('onedark').load()
+      vim.cmd.colorscheme 'onedark'
+    end
   }
 }
 -- vim: ts=2 sts=2 sw=2 et

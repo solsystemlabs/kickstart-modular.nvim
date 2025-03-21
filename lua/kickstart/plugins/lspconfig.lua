@@ -105,6 +105,7 @@ return {
           -- or a suggestion from your LSP for this to activate.
           map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
 
+
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
@@ -121,19 +122,6 @@ return {
               return client.supports_method(method, { bufnr = bufnr })
             end
           end
-
-          -- Auto-import management
-          map('<leader>co', function()
-            vim.lsp.buf.code_action({
-              context = {
-                only = { "source.organizeImports" }
-              },
-              apply = true
-            })
-          end, '[C]ode [O]rganize Imports')
-
-          -- Quick Fix - useful for auto-imports
-          map('<leader>cf', vim.lsp.buf.code_action, '[C]ode [F]ix', { 'n', 'x' })
 
           -- Auto-import completion confirmation
           -- Note: This is configured in your cmp.mapping section
@@ -237,57 +225,57 @@ return {
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        ts_ls = {
-          settings = {
-            typescript = {
-              inlayHints = {
-                includeInlayParameterNameHints = 'all',
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
-              },
-              suggest = {
-                includeCompletionsForModuleExports = true,
-                includeCompletionsForImportStatements = true,
-                autoImportSuggestions = true,
-              },
-              preferences = {
-                importModuleSpecifier = 'relative',
-                importModuleSpecifierEnding = 'minimal',
-                includePackageJsonAutoImports = 'auto',
-                quoteStyle = 'single',
-              },
-            },
-            javascript = {
-              inlayHints = {
-                includeInlayParameterNameHints = 'all',
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
-              },
-              suggest = {
-                includeCompletionsForModuleExports = true,
-                includeCompletionsForImportStatements = true,
-                autoImportSuggestions = true,
-              },
-              preferences = {
-                importModuleSpecifier = 'relative',
-                importModuleSpecifierEnding = 'minimal',
-                includePackageJsonAutoImports = 'auto',
-                quoteStyle = 'single',
-              },
-            },
-            completions = {
-              completeFunctionCalls = true,
-            },
-          },
-        },
+        -- ts_ls = {
+        --   settings = {
+        --     typescript = {
+        --       inlayHints = {
+        --         includeInlayParameterNameHints = 'all',
+        --         includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        --         includeInlayFunctionParameterTypeHints = true,
+        --         includeInlayVariableTypeHints = true,
+        --         includeInlayPropertyDeclarationTypeHints = true,
+        --         includeInlayFunctionLikeReturnTypeHints = true,
+        --         includeInlayEnumMemberValueHints = true,
+        --       },
+        --       suggest = {
+        --         includeCompletionsForModuleExports = true,
+        --         includeCompletionsForImportStatements = true,
+        --         autoImportSuggestions = true,
+        --       },
+        --       preferences = {
+        --         importModuleSpecifier = 'relative',
+        --         importModuleSpecifierEnding = 'minimal',
+        --         includePackageJsonAutoImports = 'auto',
+        --         quoteStyle = 'single',
+        --       },
+        --     },
+        --     javascript = {
+        --       inlayHints = {
+        --         includeInlayParameterNameHints = 'all',
+        --         includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        --         includeInlayFunctionParameterTypeHints = true,
+        --         includeInlayVariableTypeHints = true,
+        --         includeInlayPropertyDeclarationTypeHints = true,
+        --         includeInlayFunctionLikeReturnTypeHints = true,
+        --         includeInlayEnumMemberValueHints = true,
+        --       },
+        --       suggest = {
+        --         includeCompletionsForModuleExports = true,
+        --         includeCompletionsForImportStatements = true,
+        --         autoImportSuggestions = true,
+        --       },
+        --       preferences = {
+        --         importModuleSpecifier = 'relative',
+        --         importModuleSpecifierEnding = 'minimal',
+        --         includePackageJsonAutoImports = 'auto',
+        --         quoteStyle = 'single',
+        --       },
+        --     },
+        --     completions = {
+        --       completeFunctionCalls = true,
+        --     },
+        --   },
+        -- },
         html = { filetypes = { 'html' } },
         tailwindcss = { filetypes = { 'html', 'vue', 'javascript', 'typescript', 'typescriptreact', 'javascriptreact' } },
 
